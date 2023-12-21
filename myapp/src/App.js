@@ -1,7 +1,44 @@
+import { useEffect, useState } from 'react';
+import './app.css'
+import Navbar from './components/Navbar/Navbar';
+import Card from './components/Card/Card';
+import { posts } from './data';
+import { io } from "socket.io-client";
+
 function App() {
+  const [username, setUsername] = useState("");
+  const [user, setUser] = useState("");
+  const [socket, setSocket] = useState(null);
+
+  useEffect(()=>{
+    setSocket(io('ws://localhost:8800'))
+  }, [])
+
+  useEffect(() => {
+    socket?.emit("newUser", user);
+  }, [socket, user]);
+
+
   return (
     <div className="container">
-     g
+      {user ? (
+        <>
+          <Navbar socket={socket} />
+          {posts.map((post) => (
+            <Card key={post.id} post={post} socket={socket} user={user} />
+          ))}
+          <span className="username">{user}</span>
+        </>
+      ) : (
+        <div className="login">
+          <input
+            type="text"
+            placeholder="username"
+            onChange={(e) => setUsername(e.target.value)}
+          />
+          <button onClick={() => setUser(username)}>Login</button>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,0 +1,68 @@
+.navbar {
+    height: 50px;
+    background-color: lightseagreen;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+    position: relative;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-left: 15px;
+    cursor: pointer;
+    position: relative;
+}
+
+.iconImg {
+    width: 20px;
+    height: 20px;
+}
+
+.counter {
+    background-color: red;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    position: absolute;
+    top: -5px;
+    right: -7px;
+}
+
+.notifications {
+    position: absolute;
+    width: 40%;
+    top: 30px;
+    right: 0px;
+    background-color: #fff;
+    color: black;
+    font-weight: 300;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.notification {
+    padding: 5px;
+    font-size: 14px;
+}
+
+.nButton {
+    width: 80%;
+    padding: 5px;
+    margin-top: 10px;
+}
